@@ -1,12 +1,14 @@
 <?php
 
+/**
+ * @abstract 字符串文本处理类
+ * @author mark<mk9007@163.com>
+ * @version     1.0
+ * @copyright Yooooooooooooooooooou
+ */
+
 namespace MistPack\Diction\Character;
 
-/**
- *
- * 文字处理类
- * @author mark<mk9007@163.com>
- */
 class StringMist {
 
     /**
@@ -14,9 +16,12 @@ class StringMist {
      * 默认对系统中间的文字串进行占位符操作
      * @author mark<mk9007@163.com>
      * @param String $str 
+     * 
+     * @static
+     * 
      * @return String 
      */
-    public static function placeholder($str) {
+    public static function placeholder(String $str) {
         if (empty($str) || mb_strlen($str) < 3) {
             return $str;
         }

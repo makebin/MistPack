@@ -7,7 +7,7 @@
  * @copyright Yooooooooooooooooooou
  */
 
-namespace MistPack\Diction\Character;
+namespace MistPack\Diction\Mscorlib;
 
 /**
  * Description of DateTime
@@ -16,8 +16,19 @@ namespace MistPack\Diction\Character;
  */
 class DateTime {
 
-    const DATETIME_FORMAT_FULL = 'Y/h/d H:i:s';
-    const DATETIME_FORMAT_Y_H_D = 'Y/h/d';
+    /**
+     * @const 时间格式 年/月/日  小时/分/秒
+     */
+    const DATETIME_FORMAT_FULL = 'Y/m/d H:i:s';
+
+    /**
+     * @const 时间格式 年/月/日  
+     */
+    const DATETIME_FORMAT_Y_H_D = 'Y/m/d';
+
+    /**
+     * @const 时间格式 小时/分/秒
+     */
     const DATETIME_FORMAT_H_I_S = 'H:i:s';
 
     /**

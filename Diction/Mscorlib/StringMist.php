@@ -7,7 +7,7 @@
  * @copyright Yooooooooooooooooooou
  */
 
-namespace MistPack\Diction\Character;
+namespace MistPack\Diction\Mscorlib;
 
 class StringMist {
 

@@ -21,7 +21,7 @@ class StringMist {
             return $str;
         }
         $_i = abs(mb_strlen($str) / 3);
-        return substr_replace($str, '*', $_i, $_i);
+        return substr_replace($str, str_repeat('*', $_i), $_i, $_i);
     }
 
 }

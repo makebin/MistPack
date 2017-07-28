@@ -59,4 +59,17 @@ class StringMist {
         return $suffix ? $slice . '...' : $slice;
     }
 
+    /**
+     * 设定长度数字加前导
+     * @access public
+     * @static
+     * @param Integer $int 编号
+     * @param Integer $prefixLenght 长度
+     * @return String
+     * @author mark<mk9007@163.com>
+     */
+    public static function intPrefix(Int $int, Int $prefixLenght = 5) {
+        return sprintf('%0' . $prefixLenght, 's', $int);
+    }
+
 }

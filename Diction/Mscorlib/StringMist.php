@@ -72,4 +72,17 @@ class StringMist {
         return sprintf('%0' . $prefixLenght, 's', $int);
     }
 
+    /**
+     * get传输的base64字符串解密函数
+     * 用GET形式传过来的时候,<b>+</b>号会被替换成空格 <br/>
+     * 为了防止出现乱码的情况,先用<b>+</b>号替换<b>空格</b>,然后再解密
+     * @static
+     * @access public
+     * @param String $old 传输过来的base64字符串
+     * @author mark<mk9007@163.com>
+     */
+    public static function httpGetBase64Decode(String $old) {
+        return base64_decode(str_replace(" ", "+", $old));
+    }
+
 }

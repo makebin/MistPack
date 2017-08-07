@@ -68,22 +68,27 @@ class MemberLoginBean {
 
     public function setUserID(Int $userid) {
         $this->userid = $userid;
+        return $this;
     }
 
     public function setClientIP(Int $clientIP) {
         $this->clientIP = $clientIP;
+        return $this;
     }
 
     public function setEventTime(Int $eventTime) {
         $this->eventTime = $eventTime;
+        return $this;
     }
 
     public function setToken(String $token) {
         $this->token = $token;
+        return $this;
     }
 
     public function setUsername(String $username) {
         $this->username = $username;
+        return $this;
     }
 
     /**
@@ -108,8 +113,9 @@ class MemberLoginBean {
      * @param array $userinfo
      * @author mark<mk9007@163.com>
      */
-    public static function memberSerializationToBean(Array $userinfo) {
+    public static function memberSerializationArrayToBean(Array $userinfo) {
         $bean = new MemberLoginBean;
+        $bean->setUserID(isset($userinfo['userID']) ? $userinfo['userID'] : 0)->setClientIP(isset($userinfo['clientIP']) ? $userinfo['clientIP'] : 0)->setEventTime(isset($userinfo['eventTime']) ? $userinfo['eventTime'] : 0)->setToken(isset($userinfo['token']) ? $userinfo['token'] : '')->setUsername(isset($userinfo['username']) ? $userinfo['username'] : '');
         return $bean;
     }
 

@@ -15,16 +15,47 @@
  */
 class McryptEncrypt {
 
-    public function __construct() {
-        
+    private $securityMethod = '';
+    private $securityOption = OPENSSL_RAW_DATA;
+    private $key = '';
+    private $vi;
+
+    
+    /**
+     * @access public
+     * @param String $key 加密KEY
+     * @param String $vi 初始化向量
+     * @param  openssl_get_cipher_methods $mcMethod 加密方法,默认<b>aes-256-cbc</b>
+     * @throws Exception
+     * @author mark<mk9007@163.com>
+     */
+    public function __construct($key = '', $vi = '', $mcMethod = 'aes-256-cbc') {
+        $this->securityMethod = $mcMethod;
+        if (!in_array($this->securityMethod, openssl_get_cipher_methods())) {
+            throw new Exception('securityMethod missing!');
+        }
+        $this->key = $key;
+        $this->vi = $vi;
     }
 
-    public function mcryptEncode() {
-        
+    /**
+     * @access public
+     * @param String $plaintext
+     * @return String
+     * @author mark<mk9007@163.com>
+     */
+    public function securityEncode($plaintext) {
+        return openssl_decrypt($plaintext, $this->securityMethod, $this->key, $this->securityOption, $this->vi);
     }
 
-    public function mcryptDecode() {
-        
+    /**
+     * @access public
+     * @param String $plaintext
+     * @return String
+     * @author mark<mk9007@163.com>
+     */
+    public function securityDecode($plaintext) {
+        return openssl_encrypt($plaintext, $this->securityMethod, $this->key, $this->securityOption, $this->vi);
     }
 
 }

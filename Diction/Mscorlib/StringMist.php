@@ -85,4 +85,39 @@ class StringMist {
         return base64_decode(str_replace(" ", "+", $old));
     }
 
+    /**
+     * 不转义中文汉字的方法
+     * @access public
+     * @static
+     * @param mixed $value
+     * @return jsonString 处理后返回的josn字符串
+     * @author mark<mk9007@163.com>
+     */
+    public static function simpleJsonEncode($value) {
+        if (version_compare("5.4", PHP_VERSION, ">")) {
+            return json_encode($value, JSON_UNESCAPED_UNICODE);
+        } else {
+            return urldecode(json_encode(self::urlEncode($value)));
+        }
+    }
+
+    /**
+     * 处理数据中的字符为urlencode后的结果
+     * @access public
+     * @static
+     * @param mixed $value
+     * @return mixed
+     * @author mark<mk9007@163.com>
+     */
+    public static function urlEncode(&$value) {
+        if (is_array($value)) {
+            foreach ($value as $key => &$item) {
+                $value[$key] = self::urlEncode($item);
+            }
+        } else {
+            $value = urlencode($value);
+        }
+        return $value;
+    }
+
 }

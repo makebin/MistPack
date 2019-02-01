@@ -33,7 +33,7 @@ class ContainerFactory {
      * @param mixed $object  对象
      * @author mark<mk9007@163.com>
      */
-    public static function attach(String $key, $object) {
+    public static function attach(String $key, &$object) {
         self::$container[$key] = $object;
     }
 
@@ -90,7 +90,7 @@ class ContainerFactory {
      * @return mixed
      * @author mark<mk9007@163.com>
      */
-    public static function get(String $key) {
+    public static function &get(String $key) {
         return self::getHas($key) ? self::$container[$key] : FALSE;
     }
 

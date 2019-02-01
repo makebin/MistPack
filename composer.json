@@ -1,0 +1,13 @@
+{
+    "name": "makebin/mist-pack",
+    "description": "php task notes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "proson",
+            "email": "mk9007@163.com"
+        }
+    ],
+    "require": {}
+}
